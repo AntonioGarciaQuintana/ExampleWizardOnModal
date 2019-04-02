@@ -1,0 +1,53 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<button class="btn btn-primary" (click)="lgModal.show();inicialize()">Large modal</button>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Large modal</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body">
+        <div id="smartwizard">
+          <ul>
+            <li><a href="#step-1">1er elije que<br /><small>Step description</small></a></li>
+            <li ><a href="#step-2" #step2 >2do selecciona cosas<br /><small>Step description</small></a></li>
+            <li ><a href="#step-3" #step3 >3er paso datos<br /><small>Step description</small></a></li>
+            <li ><a href="#step-3" #step3 >4to paso paga<br /><small>Step description</small></a></li>
+          </ul>
+
+          <div>
+            <div id="step-1" class="">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="img-circular" (click)="goToPaypal()">
+                  </div>
+                  <p class="centrado"> Image in to circle</p>
+                </div>
+                <div class="col-sm-4">
+                  <div class="img-circular2" (click)="goToSelectArticle()"></div>
+                  <p class="centrado"> Image in to circle</p>
+                </div>
+                <div class="col-sm-4">
+                  <div class="img-circular3" (click)="goToSelectService()"></div>
+                  <p class="centrado"> Image in to circle</p>
+                </div>
+              </div>
+
+
+            </div>
+            <div id="step-2" class="">
+             <app-articles></app-articles>
+            </div>
+            <div id="step-3" class="">
+              <app-paypal [isCashDonate]="true" ></app-paypal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
