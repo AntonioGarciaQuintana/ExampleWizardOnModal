@@ -119,12 +119,12 @@
                                     <div class="separator clear-left">
                                         <p class="btn-add">
                                             <button type="button" class="btn btn-primary"
-                                                (click)="onOpenMap();smModal.show();"> <i
+                                                (click)="onOpenMap();openModal(detail);"> <i
                                                     class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                                         </p>
                                         <p class="btn-details">
                                             <button type="button" class="btn btn-secondary"
-                                                (click)="onOpenMap();smModal.show();"> <i class="fa fa-list"></i>&nbsp;
+                                                (click)="onOpenMap();openModal(detail);"> <i class="fa fa-list"></i>&nbsp;
                                                 Detalle</button>
                                         </p>
                                     </div>
@@ -427,7 +427,7 @@
     </div>
 </div>
 
-
+<!-- 
 <div bsModal #detalle="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -453,7 +453,7 @@
                                     <td class="col-md-6">
                                         <div class="media">
                                             <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                                    src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+                                                    src="https://agiflex.eu/wp-content/uploads/sites/6/2017/12/Firman-F-2000-1-350x260.jpg"
                                                     style="width: 72px; height: 72px;"> </a>
                                             <div class="media-body">
                                                 <h4 class="media-heading"><a href="#">Product name</a></h4>
@@ -472,7 +472,7 @@
                                     <td class="col-md-6">
                                         <div class="media">
                                             <a class="thumbnail pull-left" href="#"> <img class="media-object"
-                                                    src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png"
+                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3aUaPczXdildPl1S5UilIOCDq3gGa9o_54xQPvmBOgkQT3oNcGg"
                                                     style="width: 72px; height: 72px;"> </a>
                                             <div class="media-body">
                                                 <h4 class="media-heading">Product name</h4>
@@ -501,12 +501,12 @@
                                 <tr>
                                     <td>   </td>
                                     <td colspan="3">
-                                            <button type="button" class="btn btn-success">
-                                                    <span class="fa fa-cart-plus"></span> Continuar con la compra
-                                               </button>
+                                        <button type="button" class="btn btn-success">
+                                            <span class="fa fa-cart-plus"></span> Continuar con la compra
+                                        </button>
                                     </td>
                                     <td>
-                                        </td>
+                                    </td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -516,7 +516,93 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<ng-template #detail>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">First modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="text-center">Precio</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-6">
+                                <div class="media">
+                                    <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                            src="https://agiflex.eu/wp-content/uploads/sites/6/2017/12/Firman-F-2000-1-350x260.jpg"
+                                            style="width: 72px; height: 72px;"> </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="#">Product name</a></h4>
+                                        <span>Tipo de compra: </span><span
+                                            class="text-success"><strong>Completo</strong></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-md-2 text-center"><strong>$14.61</strong></td>
+                            <td class="col-md-2">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i> Remove
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-6">
+                                <div class="media">
+                                    <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3aUaPczXdildPl1S5UilIOCDq3gGa9o_54xQPvmBOgkQT3oNcGg"
+                                            style="width: 72px; height: 72px;"> </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Product name</h4>
+                                        <span>Tipo de compra: </span><span
+                                            class="text-warning"><strong>Parcial</strong></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-md-2 text-center"><strong>$9.98</strong></td>
+                            <td class="col-md-2">
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i> Remove
+                                </button></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>   </td>
+                            <td>
+                                <h3>Total</h3>
+                            </td>
+                            <td class="text-right">
+                                <h3>$31.53</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td colspan="3">
+                                <button type="button" class="btn btn-success">
+                                    <span class="fa fa-cart-plus"></span> Continuar con la compra
+                                </button>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+  </ng-template>
 
 <!-- <ng-template  #templateNested>
     <div class="modal-header ">

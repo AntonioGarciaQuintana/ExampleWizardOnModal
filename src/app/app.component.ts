@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer, TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 declare var $: any;
 
 @Component({
@@ -11,11 +12,12 @@ export class AppComponent implements OnInit {
   title = 'modalWizard';
   @ViewChild('step3') step3: ElementRef;
   @ViewChild('step2') step2: ElementRef;
+  modalRef: BsModalRef | null;
 
   // parameter configuration wizard
 
 
-  constructor(private renderer: Renderer) {
+  constructor(private renderer: Renderer, private modalService: BsModalService) {
 
   }
   ngOnInit(): void {
@@ -25,10 +27,10 @@ export class AppComponent implements OnInit {
   inicialize() {
 
     // Toolbar extra buttons
-    this.configureWizard([], 0);
+    this.configureWizard(0);
   }
 
-  configureWizard(disableSteps: any, step: number) {
+  configureWizard(step: number) {
 
     const btnFinish = $('<button></button>').text('Finish')
       .addClass('btn btn-info')
@@ -43,17 +45,18 @@ export class AppComponent implements OnInit {
       transitionEffect: 'fade',
       showStepURLhash: false,
       hiddenSteps: true,
-      disabledSteps: disableSteps,
+      disabledSteps: [],
       toolbarSettings: {
         showNextButton: false,
-        showPreviousButton: false,
-        toolbarExtraButtons: [btnFinish, btnCancel]
+        showPreviousButton: false
+       // b toolbarExtraButtons: [btnFinish, btnCancel]
       }
     });
   }
 
   goToPaypal() {
-    this.configureWizard([1], 2);
+    this.configureWizard(2);
+    $('#step3').trigger('click');
     const event = new MouseEvent('click', { bubbles: true });
     this.renderer.invokeElementMethod(
       this.step3.nativeElement, 'dispatchEvent', [event]);
@@ -62,7 +65,7 @@ export class AppComponent implements OnInit {
   }
 
   goToSelectArticle() {
-    this.configureWizard([2], 1);
+    this.configureWizard(1);
     const event = new MouseEvent('click', { bubbles: true });
     this.renderer.invokeElementMethod(
       this.step2.nativeElement, 'dispatchEvent', [event]);
@@ -73,5 +76,8 @@ export class AppComponent implements OnInit {
 
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-lg' });
+  }
 
 }

@@ -9,12 +9,14 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { DatosPersonalesComponent } from './datospersonales/datos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PaypalComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    DatosPersonalesComponent
   ],
   imports: [
     BrowserModule,

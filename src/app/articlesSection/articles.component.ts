@@ -13,7 +13,7 @@ declare var $: any;
 })
 export class ArticlesComponent implements OnInit {
 
-    modalRef2: BsModalRef;
+    modalRef: BsModalRef | null;
     map: L.Map;
     markers: Marker;
     compraCompleta = true;
@@ -54,11 +54,6 @@ export class ArticlesComponent implements OnInit {
         });
     }
 
-    openModal2(template: TemplateRef<any>) {
-        this.modalRef2 = this.modalService.show(template, { class: 'modal-dialog-centered' });
-    }
-
-
     /** metodos del maapa */
     onOpenMap() {
         setTimeout(() => {
@@ -94,5 +89,9 @@ export class ArticlesComponent implements OnInit {
     onChange(value: any) {
         console.log(this.compraCompleta);
     }
+
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+      }
 
 }
