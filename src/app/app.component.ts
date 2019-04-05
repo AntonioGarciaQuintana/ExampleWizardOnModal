@@ -53,7 +53,6 @@ export class AppComponent implements OnInit {
   }
 
   goToPaypal() {
-    alert('go to paypal');
     this.configureWizard([1], 2);
     const event = new MouseEvent('click', { bubbles: true });
     this.renderer.invokeElementMethod(
@@ -63,7 +62,6 @@ export class AppComponent implements OnInit {
   }
 
   goToSelectArticle() {
-    alert('select article');
     this.configureWizard([2], 1);
     const event = new MouseEvent('click', { bubbles: true });
     this.renderer.invokeElementMethod(
@@ -72,7 +70,6 @@ export class AppComponent implements OnInit {
   }
 
   goToSelectService() {
-    alert('Select service');
 
   }
 
