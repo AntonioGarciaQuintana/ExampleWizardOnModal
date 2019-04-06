@@ -1,6 +1,6 @@
 <p class="text-center custom-header">More bootstrap 4 components on
     <a href="http://bootstrap-ecommerce.com/">Bootstrap-ecommerce.com</a>
-    <button class="btn btn-primary btn-lg" type="button" (click)="detalle.show()" data-toggle="modal"
+    <button class="btn btn-primary btn-lg" type="button" (click)="detalle.show();" data-toggle="modal"
         data-target="#cart" style="float:right;"><i class="fa fa-shopping-cart"></i> {{ '5' }}</button>
 
 </p>
@@ -119,12 +119,12 @@
                                     <div class="separator clear-left">
                                         <p class="btn-add">
                                             <button type="button" class="btn btn-primary"
-                                                (click)="onOpenMap();openModal(detail);"> <i
+                                                (click)="onOpenMap();smModal.show()"> <i
                                                     class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                                         </p>
                                         <p class="btn-details">
                                             <button type="button" class="btn btn-secondary"
-                                                (click)="onOpenMap();openModal(detail);"> <i class="fa fa-list"></i>&nbsp;
+                                                (click)="onOpenMap();smModal.show();"> <i class="fa fa-list"></i>&nbsp;
                                                 Detalle</button>
                                         </p>
                                     </div>
@@ -427,7 +427,7 @@
     </div>
 </div>
 
-<!-- 
+
 <div bsModal #detalle="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -516,9 +516,9 @@
             </div>
         </div>
     </div>
-</div> -->
+</div> 
 
-
+<!--
 <ng-template #detail>
     <div class="modal-header">
       <h4 class="modal-title pull-left">First modal</h4>
@@ -602,7 +602,7 @@
             </div>
         </div>
     </div>
-  </ng-template>
+  </ng-template> -->
 
 <!-- <ng-template  #templateNested>
     <div class="modal-header ">
